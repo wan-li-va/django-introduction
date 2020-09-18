@@ -8,7 +8,20 @@ body {
     flex: 1;
     justify-content: center;
     align-items: center;
-    background: white url("images/background.gif") no-repeat;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.index {
+    background: white url("images/background.gif");
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 .links {
@@ -16,4 +29,53 @@ body {
     flex-direction: column;
     flex: 1;
     background-color: pink;
+}
+
+.navbar {
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    padding: 15px;
+}
+
+.navbar-brand {
+    background-color: yellow;
+    padding: 1vw;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 1vw;
+}
+
+.nav-item {
+    background-color: pink;
+    width: 9vw;
+    margin-right: 2vw;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    right: 3vw;
+}
+
+.polls {
+    background-color: white;
+    padding: 3vw;
+    border-radius: 10px;
+    border-style: solid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 25vw;
+}
+
+.details {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
