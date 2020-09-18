@@ -2,6 +2,10 @@ li a {
     color: green;
 }
 
+h1 {
+    margin-bottom: 5vh;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -24,13 +28,6 @@ body {
     align-items: center;
 }
 
-.links {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    background-color: pink;
-}
-
 .navbar {
     position: absolute;
     top: 0px;
@@ -39,23 +36,24 @@ body {
 }
 
 .navbar-brand {
-    background-color: yellow;
-    padding: 1vw;
+    background-color: lightblue;
+    padding: 1vw 3vw 1vw 3vw;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-right: 1vw;
+    font-weight: bold;
 }
 
 .nav-item {
-    background-color: pink;
+    background-color: plum;
     width: 9vw;
     margin-right: 2vw;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    right: 3vw;
+    text-align: center;
 }
 
 .polls {
@@ -82,4 +80,9 @@ body {
 
 .form-group {
     width: 40vw;
+}
+
+.comment-list {
+    overflow-y: scroll;
+    max-height: 70vh;
 }

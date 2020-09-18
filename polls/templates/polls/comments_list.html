@@ -1,20 +1,49 @@
-{% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
-
 {% load bootstrap4 %}
 {% bootstrap_css %}
-{% buttons %}
-<a href="{% url 'polls:index' %}">Go back to index</a>
-<a href="{% url 'polls:comments' %}">Add a comment</a>
-{% endbuttons %}
 
-{% if comment_list %}
-    <ul>
+{% load static %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand">Polls Application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'polls:index' %}">Polls Index</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'polls:comments' %}">Comment Entry</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'polls:comments_list' %}">Comments List</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <h1>Comments List</h1>
+    {% if comment_list %}
+    <div class="comment-list">
         {% for comment in comment_list %}
-        <li>{{ comment.comment_name }}: {{ comment.comment_body }}</li>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ comment.comment_name }}</h5>
+                <p class="card-text">{{ comment.comment_body }}</p>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
-{% else %}
+    </div>
+
+    {% else %}
     <p>No comments are available.</p>
-{% endif %}
+    {% endif %}
+</div>
