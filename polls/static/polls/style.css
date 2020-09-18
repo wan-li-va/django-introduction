@@ -3,11 +3,17 @@ li a {
 }
 
 body {
-    background: white url("images/background.gif") no-repeat;
     display: flex;
-    flex-direction: vertical;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background: white url("images/background.gif") no-repeat;
 }
 
 .links {
-    background: pink;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: pink;
 }
