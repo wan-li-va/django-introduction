@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 
 <div class="index">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: lightblue">
         <a class="navbar-brand">Polls Application</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,21 +31,15 @@
     <div class="polls">
         <h3>Current Polls:</h3>
         {% if latest_question_list %}
-            {% for question in latest_question_list %}
-            <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
-            {% endfor %}
+        {% for question in latest_question_list %}
+        <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+        {% endfor %}
         {% else %}
         <p>No polls are available.</p>
         {% endif %}
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+<footer class="page-footer font-small special-color-dark ">
+    <div class="footer-copyright text-right py-3">Wan Li © 2020 Copyright</div>
+</footer>
