@@ -31,7 +31,7 @@ class Choice (models.Model):
 
 class Comments (models.Model):
     comment_name = models.CharField(max_length=200)
-    comment_body = models.TextField(blank= True)
+    comment_body = models.TextField(blank=True)
 
     def __str__(self):
         return self.comment_name
