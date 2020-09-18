@@ -1,10 +1,9 @@
 {% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
-
 {% load bootstrap4 %}
 {% bootstrap_css %}
-<div id="links" name="links">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<div class="links">
     {% buttons %}
     <a href="{% url 'polls:comments' %}">Enter a Comment</a>
     <a href="{% url 'polls:comments_list' %}">See all Comments</a>
