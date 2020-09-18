@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<a href="{% url 'polls:index' %}">Go back to index</a>
+<a href="{% url 'polls:comments' %}">Add a comment</a>
+{% if comment_list %}
+    <ul>
+        {% for comment in comment_list %}
+        <li>{{ comment.comment_name }}: {{ comment.comment_body }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No comments are available.</p>
+{% endif %}

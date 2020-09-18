@@ -27,3 +27,11 @@ class Choice (models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+class Comments (models.Model):
+    comment_name = models.CharField(max_length=200)
+    comment_body = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.comment_name
