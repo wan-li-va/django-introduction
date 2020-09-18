@@ -1,22 +1,46 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
-{% buttons %}
-<a href="{% url 'polls:index' %}">Go back to index</a>
-<a href="{% url 'polls:comments_list' %}">See all comments</a>
-{% endbuttons %}
+
+{% load static %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand">Polls Application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'polls:index' %}">Polls Index</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'polls:comments' %}">Comment Entry</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'polls:comments_list' %}">Comments List</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 <h1>Enter a comment:</h1>
 
 <form method="post" action="list">
     {% csrf_token %}
-    <div class = "form-group">
+    <div class="form-group">
         <label for="name">Comment name:</label>
-        <input type="text" id="name" name="name" value="">
+        <input type="text" class="form-control" id="name" name="name" value="">
     </div>
-    <div class = "form-group">
+    <div class="form-group">
         <label for="body">Comment text:</label>
-        <textarea id="body" name="body"></textarea>
+        <textarea class="form-control" id="body" rows="3" name="body"></textarea>
     </div>
 
-<input type="submit" value="Comment">
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
