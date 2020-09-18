@@ -5,39 +5,41 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand">Polls Application</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="index">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand">Polls Application</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'polls:index' %}">Polls Index</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'polls:comments' %}">Comment Entry</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'polls:comments_list' %}">Comments List</a>
-            </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'polls:index' %}">Polls Index</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'polls:comments' %}">Comment Entry</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'polls:comments_list' %}">Comments List</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="polls">
+        <h3>Current Polls:</h3>
+        {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+            {% endfor %}
         </ul>
+        {% else %}
+        <p>No polls are available.</p>
+        {% endif %}
     </div>
-</nav>
-
-<div class="polls">
-    <h3>Current Polls:</h3>
-    {% if latest_question_list %}
-    <ul>
-        {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No polls are available.</p>
-    {% endif %}
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

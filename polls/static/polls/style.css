@@ -10,7 +10,18 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
+
+}
+
+.index {
     background: white url("images/background.gif");
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 .links {
@@ -52,4 +63,19 @@ body {
     padding: 3vw;
     border-radius: 10px;
     border-style: solid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 25vw;
+}
+
+.details {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
