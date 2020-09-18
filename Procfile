@@ -1,1 +1,1 @@
-web: gunicorn django-wan-li-va.wsgi
+web: gunicorn django_tutorial.wsgi
