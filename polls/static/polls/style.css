@@ -4,4 +4,10 @@ li a {
 
 body {
     background: white url("images/background.gif") no-repeat;
+    display: flex;
+    flex-direction: vertical;
+}
+
+.links {
+    background: pink;
 }

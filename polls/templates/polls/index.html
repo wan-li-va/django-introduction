@@ -4,17 +4,19 @@
 
 {% load bootstrap4 %}
 {% bootstrap_css %}
-{% buttons %}
+<div id="links" name="links">
+    {% buttons %}
     <a href="{% url 'polls:comments' %}">Enter a Comment</a>
     <a href="{% url 'polls:comments_list' %}">See all Comments</a>
-{% endbuttons %}
+    {% endbuttons %}
+</div>
 
 {% if latest_question_list %}
-    <ul>
-        {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-        {% endfor %}
-    </ul>
+<ul>
+    {% for question in latest_question_list %}
+    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+</ul>
 {% else %}
-    <p>No polls are available.</p>
+<p>No polls are available.</p>
 {% endif %}
