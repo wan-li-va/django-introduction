@@ -2,6 +2,10 @@ li a {
     color: green;
 }
 
+h1 {
+    margin-bottom: 5vh;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -9,8 +13,8 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
-
+    height: 90vh;
+    margin-top: 10vh;
 }
 
 .index {
@@ -24,13 +28,6 @@ body {
     align-items: center;
 }
 
-.links {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    background-color: pink;
-}
-
 .navbar {
     position: absolute;
     top: 0px;
@@ -39,23 +36,24 @@ body {
 }
 
 .navbar-brand {
-    background-color: yellow;
-    padding: 1vw;
+    padding: 1vw 3vw 1vw 3vw;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-right: 1vw;
+    font-weight: bold;
+    border-style: solid;
 }
 
 .nav-item {
-    background-color: pink;
+    background-color: plum;
     width: 9vw;
     margin-right: 2vw;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    right: 3vw;
+    text-align: center;
 }
 
 .polls {
@@ -70,7 +68,7 @@ body {
 }
 
 .content {
-    margin-top: 10vh;
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -78,4 +76,27 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
+}
+
+.form-group {
+    width: 40vw;
+}
+
+.comment-list {
+    overflow-y: scroll;
+    max-height: 70vh;
+}
+
+.footer-copyright {
+    background-color: lightblue;
+    font-style: italic;
+    font-weight: bold;
+    text-align: right;
+    width: 100vw;
+    padding-right: 3vw;
+    opacity: 0.8;
+}
+
+.btn {
+    margin-top: 2vh;
 }
