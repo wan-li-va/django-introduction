@@ -1,4 +1,8 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% buttons %}
 <a href="{% url 'polls:index' %}">Go back to index</a>
+{% endbuttons %}
 
 <h1>{{ question.question_text }}</h1>
 

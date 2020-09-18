@@ -2,9 +2,14 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 
-{% if latest_question_list %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% buttons %}
     <a href="{% url 'polls:comments' %}">Enter a Comment</a>
     <a href="{% url 'polls:comments_list' %}">See all Comments</a>
+{% endbuttons %}
+
+{% if latest_question_list %}
     <ul>
         {% for question in latest_question_list %}
         <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>

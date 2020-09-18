@@ -1,7 +1,11 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% buttons %}
 <a href="{% url 'polls:index' %}">Go back to index</a>
 <a href="{% url 'polls:comments_list' %}">See all comments</a>
-<h1>Enter a comment:</h1>
+{% endbuttons %}
 
+<h1>Enter a comment:</h1>
 
 <form method="post" action="list">
     {% csrf_token %}
