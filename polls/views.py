@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from .models import Choice, Question
+from .models import Choice, Question, Comments
 
 
 class IndexView(generic.ListView):
@@ -46,6 +46,48 @@ def vote(request, question_id):
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
     # return HttpResponse("You're voting on question %s." % question_id)
+
+
+class CommentsView(generic.CreateView):
+    model = Comments
+    template_name = 'polls/comments.html'
+    fields = '__all__'
+# def comments(request):
+#     comment = get_object_or_404(Comments)
+#     try:
+#         name = comment.get(pk=request.POST['name'])
+#         body = comment.get(pk=request.POST['body'])
+#         if not name or body:
+#             raise ValueError('empty string')
+#     except ValueError as e:
+#         return render(request, 'polls/comments.html', {
+#             'comment': comment,
+#             'error_message': "You didn't enter a comment.",
+#         })
+#     else:
+#         c = Comments(comment_name=name, comment_body=body)
+#         c.save()
+#         return HttpResponseRedirect(reverse('polls:comments_list'))
+
+
+def comments_list(request):
+    comment_list = Comments.objects.all()
+    context = {'comment_list': comment_list}
+    if request.POST.get('name') is not None:
+        name = request.POST.get('name')
+        body = request.POST.get('body')
+        c = Comments(comment_name=name, comment_body=body)
+        c.save()
+    return render(request, "polls/comments_list.html", context)
+
+
+# class CommentsListView(generic.ListView):
+#     # model = Comments
+#     template_name = 'polls/comments_list.html'
+#     # context_object_name = 'comments_list'
+#
+#     def get_queryset(self):
+#         return Comments.objects.exclude(comment_name__isnull=True)
 
 
 # def index(request):
